@@ -10,13 +10,12 @@ public class Blaster : MonoBehaviour
 
 [Header("Input")]
     public SteamVR_Action_Boolean m_FireAction = null;
-    public SteamVR_Action_Boolean m_RealoadAction = null;
+    //public SteamVR_Action_Boolean m_RealoadAction = null;
 
 [Header("Settings")]
     public int m_Force = 100;
     public int m_MaxProjectileCount = 6;
     public float m_ReloadTime = 1.5f;
-
 
     [Header("References")]
     public Transform m_Barrel = null;
@@ -64,11 +63,23 @@ public class Blaster : MonoBehaviour
             
         }
 
-        if (m_RealoadAction.GetStateDown(m_Pose.inputSource))
-            StartCoroutine(Reload());
+        //if (m_RealoadAction.GetStateDown(m_Pose.inputSource))
+            //StartCoroutine(Reload());
 
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("ReloadStation"))
+            StartCoroutine(Reload());
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("ReloadStation"))
+            StopCoroutine(Reload());
+
+    }
     private void Fire()
     {
         if (m_FiredCount >= m_MaxProjectileCount)
