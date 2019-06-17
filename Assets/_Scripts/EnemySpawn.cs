@@ -13,10 +13,15 @@ public class EnemySpawn : MonoBehaviour
     public int m_NumEnemies = 50;
     private int m_EnemyIdx;
     private float timer;
-
+    private float m_SpeedOverTime = 0.2f;
     private bool m_MaySpawn = true;
+    
 
-   
+
+    private void Start()
+    {
+         
+    }
 
     void Update()
     {
@@ -32,8 +37,6 @@ public class EnemySpawn : MonoBehaviour
             m_MaySpawn = false;
             timer = 0f;
         }
-
-        
     }
 
     public void SpawnEnemy()
@@ -49,7 +52,7 @@ public class EnemySpawn : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        Gizmos.color = new Color(1 , 0 , 0, 0.5f);
         Gizmos.DrawCube(transform.localPosition + m_SpawnCenter, m_SpawnSize);
     }
 
