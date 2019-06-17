@@ -9,13 +9,43 @@ public class Target : MonoBehaviour
     private MeshRenderer m_MeshRenderer = null;
     public Material m_OriginalColor = null;
 
+    [SerializeField]GameObject m_Player;
+    public static float m_TargetSpeed = 4f;
+    private Vector3 m_DirectionToTarget;
+    private Rigidbody rb;
+
     private int m_MaxHealth = 2;
     private int m_Health = 0;
+    private int timer;
 
     private void Awake()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
         m_OriginalColor = m_MeshRenderer.material;
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        m_Player = GameObject.Find("Player");
+    }
+
+    private void Update()
+    {
+        MoveTarget();
+        
+    }
+
+    void MoveTarget()
+    {
+        if (m_Player != null)
+        {
+            m_DirectionToTarget = (m_Player.transform.position - transform.position).normalized;
+            rb.velocity = new Vector3(m_DirectionToTarget.x * m_TargetSpeed, m_DirectionToTarget.y * m_TargetSpeed, m_DirectionToTarget.z * m_TargetSpeed);
+        }
+
+        else
+            rb.velocity = Vector3.zero;
     }
 
     private void OnEnable()

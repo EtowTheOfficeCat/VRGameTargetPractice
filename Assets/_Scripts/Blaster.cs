@@ -63,10 +63,16 @@ public class Blaster : MonoBehaviour
             
         }
 
-        //if (m_RealoadAction.GetStateDown(m_Pose.inputSource))
-            //StartCoroutine(Reload());
+        if(Input.GetKey(KeyCode.Space))
+        {
+            m_Animator.SetBool("Fire", true);
+            Fire();
+        }
 
-    }
+    //if (m_RealoadAction.GetStateDown(m_Pose.inputSource))
+    //StartCoroutine(Reload());
+
+}
 
     private void OnTriggerEnter(Collider collision)
     {
