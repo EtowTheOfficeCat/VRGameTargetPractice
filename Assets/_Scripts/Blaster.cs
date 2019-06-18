@@ -19,6 +19,7 @@ public class Blaster : MonoBehaviour
 
     [Header("References")]
     public Transform m_Barrel = null;
+    public Transform m_LaserPointer = null;
     public GameObject m_ProjectilePrefab = null;
     public Text m_AmmoOutput = null;
     public TextMeshProUGUI m_ScreenAmmo = null;
@@ -44,6 +45,9 @@ public class Blaster : MonoBehaviour
     {
         UpdateFireCount(0);
         BlasterSource.clip = BlasterClip;
+        
+
+
     }
     private void Update()
     {
@@ -62,6 +66,7 @@ public class Blaster : MonoBehaviour
             m_Animator.SetBool("Fire", false);
             
         }
+// For testing Purpouses
 
         if(Input.GetKey(KeyCode.Space))
         {
@@ -69,10 +74,11 @@ public class Blaster : MonoBehaviour
             Fire();
         }
 
-    //if (m_RealoadAction.GetStateDown(m_Pose.inputSource))
-    //StartCoroutine(Reload());
+        
+        //if (m_RealoadAction.GetStateDown(m_Pose.inputSource))
+        //StartCoroutine(Reload());
 
-}
+    }
 
     private void OnTriggerEnter(Collider collision)
     {

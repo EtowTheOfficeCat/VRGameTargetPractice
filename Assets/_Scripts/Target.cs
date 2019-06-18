@@ -18,6 +18,8 @@ public class Target : MonoBehaviour
     private int m_Health = 0;
     private int timer;
 
+
+
     private void Awake()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
@@ -28,12 +30,15 @@ public class Target : MonoBehaviour
     private void Start()
     {
         m_Player = GameObject.Find("Player");
+        
+
     }
 
     private void Update()
     {
         MoveTarget();
-        
+
+        //m_TargetSpeed = gameObject.GetComponent<EnemySpawn>().m_SpeedOverTime;
     }
 
     void MoveTarget()

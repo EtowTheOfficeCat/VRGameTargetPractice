@@ -13,10 +13,13 @@ public class EnemySpawn : MonoBehaviour
     public int m_NumEnemies = 50;
     private int m_EnemyIdx;
     private float timer;
-    private float m_SpeedOverTime = 0.2f;
     private bool m_MaySpawn = true;
-    
 
+
+    public float m_SpeedOverTime = 0.2f;
+    public float m_SpeedIncreaseTimer = 10;
+    private float m_SpeedTimer;
+    
 
     private void Start()
     {
@@ -31,13 +34,26 @@ public class EnemySpawn : MonoBehaviour
         {
             timer = 0f;
             SpawnEnemy();
+            m_SpawnInterval -= 0.01f;
         }
         else if (m_EnemyIdx >= m_NumEnemies)
         {
             m_MaySpawn = false;
             timer = 0f;
         }
+
+
+
+        //m_SpeedTimer += Time.deltaTime;
+        //if(m_SpeedTimer >= m_SpeedIncreaseTimer )
+        //{
+        //    m_SpeedOverTime =+ 1f;
+        //    m_SpeedTimer = 0;
+            
+        //}
     }
+
+
 
     public void SpawnEnemy()
     {
