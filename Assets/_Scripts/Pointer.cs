@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pointer : MonoBehaviour
 {
     public float m_DefaultLengh = 5.0f;
-    public GameObject m_Dot;
+    //public GameObject m_Dot;
     public VR_InputModule m_InputModule;
 
     private LineRenderer m_LineRenderer = null;
@@ -31,13 +31,13 @@ public class Pointer : MonoBehaviour
         if(hit.collider != null)
             endPosition = hit.point;
 
-        m_Dot.transform.position = endPosition;
+        //m_Dot.transform.position = endPosition;
 
         m_LineRenderer.SetPosition(0, transform.position);
         m_LineRenderer.SetPosition(1, endPosition);
     }
 
-    private  RaycastHit CreateRaycast(float lengh)
+    private RaycastHit CreateRaycast(float lengh)
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
