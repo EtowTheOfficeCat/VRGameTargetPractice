@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+
+public class BlueTarget : MonoBehaviour
 {
     public Material m_FlashDamageColor = null;
 
     private MeshRenderer m_MeshRenderer = null;
     public Material m_OriginalColor = null;
 
-    private GameObject m_Player;
-    public  float m_TargetSpeed = 0.2f;
+    public float m_TargetSpeed = 0.2f;
     private Vector3 m_DirectionToTarget;
     private Rigidbody rb;
 
     private int m_MaxHealth = 2;
     private int m_Health = 0;
     private int timer;
+    private float m_TargetGoal;
+
+    Transform[] m_targetArray = new Transform[6];
+    private Transform m_TargetGoalTransform;
 
 
 
@@ -29,9 +33,15 @@ public class Target : MonoBehaviour
 
     private void Start()
     {
-        m_Player = GameObject.Find("Player");
-        
+        m_targetArray[0] = GameObject.Find("HorizontalSpawnBack").transform;
+        m_targetArray[1] = GameObject.Find("HorizontalSpawnFront").transform;
+        m_targetArray[2] = GameObject.Find("HorizontalSpawnLeft").transform;
+        m_targetArray[3] = GameObject.Find("HorizontalSpawnRight").transform;
+        m_targetArray[4] = GameObject.Find("BottomSpawn").transform;
+        m_targetArray[5] = GameObject.Find("TopSpawn").transform;
 
+        m_TargetGoal = Random.Range(0, m_targetArray.Length);
+        //m_TargetGoal = GameObject.Find(m_targetArray[Random.Range]);
     }
 
     private void Update()
@@ -43,9 +53,9 @@ public class Target : MonoBehaviour
 
     void MoveTarget()
     {
-        if (m_Player != null)
+        if (m_TargetGoal != null)
         {
-            m_DirectionToTarget = (m_Player.transform.position - transform.position).normalized;
+            m_DirectionToTarget = (m_TargetGoal.transform.position - transform.position).normalized;
             rb.velocity = new Vector3(m_DirectionToTarget.x * m_TargetSpeed, m_DirectionToTarget.y * m_TargetSpeed, m_DirectionToTarget.z * m_TargetSpeed);
         }
 
