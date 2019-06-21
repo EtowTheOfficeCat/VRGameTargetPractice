@@ -15,15 +15,11 @@ public class TargetSpawn : MonoBehaviour
     private float timer;
     private bool m_MaySpawn = true;
 
-
-    public float m_SpeedOverTime = 0.2f;
-    public float m_SpeedIncreaseTimer = 10;
     private float m_SpeedTimer;
-
 
     private void Start()
     {
-
+       
     }
 
     void Update()
@@ -44,11 +40,10 @@ public class TargetSpawn : MonoBehaviour
 
     }
 
-
-
     public void SpawnEnemy()
     {
-        Vector3 pos = transform.localPosition + m_SpawnCenter + new Vector3(
+
+         Vector3 pos = transform.localPosition + m_SpawnCenter + new Vector3(
             Random.Range(-m_SpawnSize.x / 2, m_SpawnSize.x / 2),
             Random.Range(-m_SpawnSize.y / 2, m_SpawnSize.y / 2),
             Random.Range(-m_SpawnSize.z / 2, m_SpawnSize.z / 2));

@@ -17,11 +17,11 @@ public class BlueTarget : MonoBehaviour
     private int m_MaxHealth = 2;
     private int m_Health = 0;
     private int timer;
-    private float m_TargetGoal;
+    private GameObject m_TargetGoal;
 
-    Transform[] m_targetArray = new Transform[6];
-    private Transform m_TargetGoalTransform;
-
+    //Transform[] m_targetArray = new Transform[6];
+    GameObject[] m_targetArray = new GameObject[6];
+    private int index;
 
 
     private void Awake()
@@ -33,25 +33,27 @@ public class BlueTarget : MonoBehaviour
 
     private void Start()
     {
-        m_targetArray[0] = GameObject.Find("HorizontalSpawnBack").transform;
-        m_targetArray[1] = GameObject.Find("HorizontalSpawnFront").transform;
-        m_targetArray[2] = GameObject.Find("HorizontalSpawnLeft").transform;
-        m_targetArray[3] = GameObject.Find("HorizontalSpawnRight").transform;
-        m_targetArray[4] = GameObject.Find("BottomSpawn").transform;
-        m_targetArray[5] = GameObject.Find("TopSpawn").transform;
+        //m_TargetGoal = GameObject.Find("HorizontalSpawnBack");
+        m_targetArray[0] = GameObject.Find("HorizontalSpawnBack");
+        m_targetArray[1] = GameObject.Find("HorizontalSpawnFront");
+        m_targetArray[2] = GameObject.Find("HorizontalSpawnLeft");
+        m_targetArray[3] = GameObject.Find("HorizontalSpawnRight");
+        m_targetArray[4] = GameObject.Find("BottomSpawn");
+        m_targetArray[5] = GameObject.Find("TopSpawn");
 
-        m_TargetGoal = Random.Range(0, m_targetArray.Length);
-        //m_TargetGoal = GameObject.Find(m_targetArray[Random.Range]);
+        index = Random.Range(0, m_targetArray.Length);
+        m_TargetGoal = m_targetArray[index];
+        print(m_TargetGoal);
+
+        //m_TargetGoal = Random.Range(0, m_targetArray.Length);
     }
 
     private void Update()
     {
         MoveTarget();
-
-        //m_TargetSpeed = gameObject.GetComponent<EnemySpawn>().m_SpeedOverTime;
     }
 
-    void MoveTarget()
+    public void MoveTarget()
     {
         if (m_TargetGoal != null)
         {
