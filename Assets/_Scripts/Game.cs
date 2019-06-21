@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameState gameState = GameState.Intro;
+
+    private void Update()
     {
-        
+        if(gameState == GameState.Intro)
+        {
+            Time.timeScale = 0f;
+        }
+
+        if (gameState == GameState.Play)
+        {
+            Time.timeScale = 1f;
+        }
+
+        else if (gameState == GameState.Pause)
+        {
+            Time.timeScale = 0f;
+        }
+    }
+    public void StartGame()
+    {
+        gameState = GameState.Play;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Pause()
     {
-        
+        gameState = GameState.Pause;
+    }
+
+    enum GameState
+    {
+        Intro, Play , Pause,  GameOver
     }
 }
