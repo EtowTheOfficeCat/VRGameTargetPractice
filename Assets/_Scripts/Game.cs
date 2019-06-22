@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    private GameState gameState = GameState.Intro;
+    private GameState gameState = GameState.Play;
 
     private void Update()
     {

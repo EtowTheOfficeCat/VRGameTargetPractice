@@ -33,7 +33,7 @@ public class BlueTarget : MonoBehaviour
 
     private void Start()
     {
-        //m_TargetGoal = GameObject.Find("HorizontalSpawnBack");
+        
         m_targetArray[0] = GameObject.Find("HorizontalSpawnBack");
         m_targetArray[1] = GameObject.Find("HorizontalSpawnFront");
         m_targetArray[2] = GameObject.Find("HorizontalSpawnLeft");
