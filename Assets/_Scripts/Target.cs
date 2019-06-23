@@ -96,11 +96,13 @@ public class Target : MonoBehaviour
     private void CheckForDeath()
     {
         if (m_Health <= 0)
+            
             Kill();
     }
 
     private void Kill()
     {
+        Game.m_ScoreValue += 10;
         gameObject.SetActive(false);
     }
 }

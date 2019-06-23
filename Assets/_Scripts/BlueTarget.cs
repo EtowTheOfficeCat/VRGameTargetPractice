@@ -113,6 +113,8 @@ public class BlueTarget : MonoBehaviour
 
     private void Kill()
     {
+        Game.m_ScoreValue += 20;
+        Game.m_PointsValue += 10;
         gameObject.SetActive(false);
     }
 }

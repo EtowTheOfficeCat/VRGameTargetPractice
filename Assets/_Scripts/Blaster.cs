@@ -111,7 +111,10 @@ public class Blaster : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        if (m_FiredCount == 0)
+        if (m_FiredCount == 0  )
+            yield break;
+
+        if (Game.m_PointsValue == 0)
             yield break;
 
         m_AmmoOutput.text = "-";
@@ -123,6 +126,7 @@ public class Blaster : MonoBehaviour
         yield return new WaitForSeconds(m_ReloadTime);
 
         UpdateFireCount(0);
+        Game.m_PointsValue -= 1;
         m_IsRealoading = false;
     }
 

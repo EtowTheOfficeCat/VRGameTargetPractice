@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class ReloadPlatform : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public AudioSource m_ReloadSoudSource;
+    public AudioClip m_ReloadClip;
+    
     void Start()
     {
-        
+        m_ReloadSoudSource.clip = m_ReloadClip;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider collision)
     {
-        
+        if (collision.gameObject.CompareTag("Phaser"))
+            m_ReloadSoudSource.Play();
+            
     }
 }

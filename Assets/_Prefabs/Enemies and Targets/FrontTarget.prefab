@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FlashDamageColor: {fileID: 2100000, guid: 803bf3e0c75f01146b5add1265eb2fa7, type: 2}
   m_OriginalColor: {fileID: 2100000, guid: aa7635df3aaa5a64398f770d5794b3f4, type: 2}
-  m_TargetSpeed: 5
+  m_TargetSpeed: 2
 --- !u!54 &3428528562939472492
 Rigidbody:
   m_ObjectHideFlags: 0
