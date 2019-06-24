@@ -76,6 +76,11 @@ public class BlueTarget : MonoBehaviour
             Damage();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        gameObject.SetActive(false);
+    }
+
     private void Damage()
     {
         StopAllCoroutines();

@@ -18,6 +18,12 @@ public class Target : MonoBehaviour
     private int m_Health = 0;
     private int timer;
 
+    private EnemyPool ePool;
+
+    public EnemyPool Epool
+    {
+        set { ePool = value; }
+    }
 
 
     private void Awake()
@@ -100,9 +106,9 @@ public class Target : MonoBehaviour
             Kill();
     }
 
-    private void Kill()
+    public void Kill()
     {
         Game.m_ScoreValue += 10;
-        gameObject.SetActive(false);
+        ePool.ReturnToPool(this);
     }
 }

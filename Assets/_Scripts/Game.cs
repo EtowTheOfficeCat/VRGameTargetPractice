@@ -8,10 +8,15 @@ public class Game : MonoBehaviour
 {
     private GameState gameState = GameState.Intro;
     public static int m_ScoreValue = 0;
-    public static int m_PointsValue = 2;
+    public static int m_PointsValue = 12;
     public TextMeshProUGUI m_Score = null;
     public TextMeshProUGUI m_Points = null;
     public AudioSource GameMusic;
+
+    public GameState CurGameState
+    {
+        get { return gameState; }
+    }
 
     private void Update()
     {
@@ -44,7 +49,7 @@ public class Game : MonoBehaviour
         gameState = GameState.Pause;
     }
 
-    enum GameState
+    public enum GameState
     {
         Intro, Play , Pause,  GameOver
     }

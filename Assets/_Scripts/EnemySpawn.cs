@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour
     public Vector3 m_SpawnCenter;
     public Vector3 m_SpawnSize;
 
-    public GameObject m_EnemyPrefab = null;
+    //public GameObject m_EnemyPrefab = null;
 
     public float m_SpawnInterval = 1f;
     public int m_NumEnemies = 50;
@@ -19,11 +19,12 @@ public class EnemySpawn : MonoBehaviour
     public float m_SpeedOverTime = 0.2f;
     public float m_SpeedIncreaseTimer = 10;
     private float m_SpeedTimer;
-    
 
-    private void Start()
+    [SerializeField] private EnemyPool ePool;
+
+    private void Awake()
     {
-         
+        ePool = GameObject.Find("EnemyPool").GetComponent<EnemyPool>();
     }
 
     void Update()
@@ -53,7 +54,8 @@ public class EnemySpawn : MonoBehaviour
             Random.Range(-m_SpawnSize.y / 2, m_SpawnSize.y / 2),
             Random.Range(-m_SpawnSize.z / 2, m_SpawnSize.z / 2));
 
-        Instantiate(m_EnemyPrefab, pos, Quaternion.identity);
+        Target target = ePool.GetNext(pos, Quaternion.identity);
+        //Instantiate(m_EnemyPrefab, pos, Quaternion.identity);
         m_EnemyIdx++;
     }
 

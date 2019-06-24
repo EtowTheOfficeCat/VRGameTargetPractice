@@ -45,8 +45,6 @@ public class Blaster : MonoBehaviour
     {
         UpdateFireCount(0);
         BlasterSource.clip = BlasterClip;
-        
-
 
     }
     private void Update()
