@@ -39,6 +39,8 @@ public class Blaster : MonoBehaviour
         m_Pose = GetComponentInParent<SteamVR_Behaviour_Pose>();
         m_Animator = GetComponent<Animator>();
         m_ProjectilePool = new ProjectilePool(m_ProjectilePrefab, m_MaxProjectileCount);
+
+        
     }
 
     private void Start()
@@ -51,6 +53,7 @@ public class Blaster : MonoBehaviour
     {
         if (m_IsRealoading)
             return;
+        
 
         if (m_FireAction.GetStateDown(m_Pose.inputSource))
         {
