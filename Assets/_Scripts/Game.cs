@@ -44,9 +44,6 @@ public class Game : MonoBehaviour
                 Timer += 10;
                 gameState = GameState.Play;
             }
-            
-            
-
         }
 
         m_Score.text = "" + m_ScoreValue;

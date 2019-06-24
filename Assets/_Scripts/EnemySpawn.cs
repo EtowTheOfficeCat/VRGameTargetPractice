@@ -9,7 +9,7 @@ public class EnemySpawn : MonoBehaviour
 
     //public GameObject m_EnemyPrefab = null;
 
-    public float m_SpawnInterval = 1f;
+    public float m_SpawnInterval = 0f;
     public int m_NumEnemies = 50;
     private int m_EnemyIdx;
     private float timer;

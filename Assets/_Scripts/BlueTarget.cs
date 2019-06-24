@@ -10,7 +10,7 @@ public class BlueTarget : MonoBehaviour
     private MeshRenderer m_MeshRenderer = null;
     public Material m_OriginalColor = null;
 
-    public float m_TargetSpeed = 0.2f;
+    public float m_BlueTargetSpeed = 0;
     private Vector3 m_DirectionToTarget;
     private Rigidbody rb;
 
@@ -58,7 +58,7 @@ public class BlueTarget : MonoBehaviour
         if (m_TargetGoal != null)
         {
             m_DirectionToTarget = (m_TargetGoal.transform.position - transform.position).normalized;
-            rb.velocity = new Vector3(m_DirectionToTarget.x * m_TargetSpeed, m_DirectionToTarget.y * m_TargetSpeed, m_DirectionToTarget.z * m_TargetSpeed);
+            rb.velocity = new Vector3(m_DirectionToTarget.x * m_BlueTargetSpeed, m_DirectionToTarget.y * m_BlueTargetSpeed, m_DirectionToTarget.z * m_BlueTargetSpeed);
         }
 
         else
