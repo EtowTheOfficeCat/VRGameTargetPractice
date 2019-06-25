@@ -10,7 +10,7 @@ public class Target : MonoBehaviour
     public Material m_OriginalColor = null;
 
     private GameObject m_Player;
-    public  float m_TargetSpeed = 0.2f;
+    public static float m_TargetSpeed = 0.5f;
     private Vector3 m_DirectionToTarget;
     private Rigidbody rb;
 

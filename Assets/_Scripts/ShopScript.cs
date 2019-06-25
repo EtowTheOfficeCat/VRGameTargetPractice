@@ -5,7 +5,9 @@ using UnityEngine;
 public class ShopScript : MonoBehaviour
 {
     public GameObject LeftPhaser;
-    public int PhaserPrice = 10; 
+    public int PhaserPrice = 10;
+    public GameObject ShopPhaserButton;
+    
 
     private void Awake()
     {
@@ -24,5 +26,6 @@ public class ShopScript : MonoBehaviour
             return;
         LeftPhaser.SetActive(true);
         Game.m_PointsValue -= 10;
+        ShopPhaserButton.SetActive(false);
     }
 }

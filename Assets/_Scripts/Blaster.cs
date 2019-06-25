@@ -26,12 +26,14 @@ public class Blaster : MonoBehaviour
     public AudioClip BlasterClip;
     public AudioSource BlasterSource;
 
-    private bool m_IsRealoading = false;
+    public static bool m_IsRealoading = false;
     private int m_FiredCount = 0;
 
     private SteamVR_Behaviour_Pose m_Pose = null;
     private Animator m_Animator = null;
     private ProjectilePool m_ProjectilePool = null;
+
+    public static int PublicAmmoStatus;
 
     private void Awake()
     {
@@ -110,14 +112,14 @@ public class Blaster : MonoBehaviour
         UpdateFireCount(m_FiredCount + 1);
     }
 
-    private IEnumerator Reload()
+    public IEnumerator Reload()
     {
         if (m_FiredCount == 0  )
             yield break;
 
         if (Game.m_PointsValue == 0)
             yield break;
-
+       
         m_AmmoOutput.text = "-";
         m_ScreenAmmo.text = "Reloading";
         m_IsRealoading = true;
@@ -129,6 +131,7 @@ public class Blaster : MonoBehaviour
         UpdateFireCount(0);
         Game.m_PointsValue -= 1;
         m_IsRealoading = false;
+
     }
 
     private void UpdateFireCount (int newValue)
@@ -136,6 +139,7 @@ public class Blaster : MonoBehaviour
         m_FiredCount = newValue;
         m_AmmoOutput.text = (m_MaxProjectileCount - m_FiredCount).ToString();
         m_ScreenAmmo.text = (m_MaxProjectileCount - m_FiredCount).ToString();
+        PublicAmmoStatus = (m_MaxProjectileCount - m_FiredCount);
     }
 }
 
