@@ -27,8 +27,11 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
+        
         if(gameState == GameState.Intro)
         {
+            m_ScoreValue = 0;
+            m_PointsValue = 0;
             Time.timeScale = 0f;
         }
 
@@ -59,7 +62,7 @@ public class Game : MonoBehaviour
         if (m_ScoreValue > m_DifficultyScore)
         {
             Target.m_TargetSpeed += 1f;
-            m_DifficultyScore += 100;
+            m_DifficultyScore += 50;
         }
         
 
@@ -88,12 +91,9 @@ public class Game : MonoBehaviour
         gameState = GameState.Pause;
 
     }
-    //private IEnumerator PauseTime ()
-    //{
-    //    gameState = GameState.Pause;
-    //    yield return new WaitForSeconds(10);
-    //    gameState = GameState.Play;
-    //}
+
+
+    
     public enum GameState
     {
         Intro, Play , Pause,  GameOver
