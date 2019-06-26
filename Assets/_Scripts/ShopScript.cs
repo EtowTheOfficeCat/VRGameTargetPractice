@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class ShopScript : MonoBehaviour
 {
-    public GameObject LeftPhaser;
+    
     public int PhaserPrice = 10;
     public GameObject ShopPhaserButton;
-    
 
-    private void Awake()
+    public void UpgradePhaser()
     {
-        LeftPhaser.SetActive(false);
-    }
-    private void Update()
-    {
-        
-        
-    }
-
-    public void ActivatePhaser()
-    {
-
+        if (Game.GameIsIntro == true)
+            return;
         if (Game.m_PointsValue < PhaserPrice)
             return;
-        LeftPhaser.SetActive(true);
+        if (Blaster.m_MaxProjectileCount > 70)
+        {
+            ShopPhaserButton.SetActive(false);
+        }
+            
+        Blaster.m_MaxProjectileCount += 10;       
         Game.m_PointsValue -= 10;
-        ShopPhaserButton.SetActive(false);
+        
     }
 }

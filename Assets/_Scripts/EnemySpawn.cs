@@ -29,7 +29,10 @@ public class EnemySpawn : MonoBehaviour
 
     void Update()
     {
-        if (m_MaySpawn == false) { return; }
+        if (Game.GameIsPaused == true)
+            return;
+        if (m_MaySpawn == false)
+            return; 
         timer += Time.deltaTime;
         if (timer >= m_SpawnInterval && m_NumEnemies > 0)
         {

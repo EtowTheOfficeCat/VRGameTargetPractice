@@ -25,6 +25,8 @@ public class PlatformControl : MonoBehaviour
      
     public void UnlockPlatform()
     {
+        if (Game.GameIsIntro == true)
+            return;
         if (Game.m_PointsValue < m_PlatformPrice)
             return;
         m_Platform.SetActive(true);
@@ -37,8 +39,11 @@ public class PlatformControl : MonoBehaviour
 
     public void TeleportPlatform()
     {
+        if (Game.GameIsIntro == true)
+            return;
         if (Game.m_PointsValue < m_TelePortationPrice)
             return;
+
         Player.transform.position = m_PlatformPosition.transform.position;
         Game.m_PointsValue -= m_TelePortationPrice;
 

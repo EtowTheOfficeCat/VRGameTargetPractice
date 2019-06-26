@@ -14,7 +14,7 @@ public class Blaster : MonoBehaviour
 
 [Header("Settings")]
     public int m_Force = 100;
-    public int m_MaxProjectileCount = 6;
+    public static int m_MaxProjectileCount = 25;
     public float m_ReloadTime = 1.5f;
 
     [Header("References")]
@@ -27,11 +27,14 @@ public class Blaster : MonoBehaviour
     public AudioSource BlasterSource;
 
     public static bool m_IsRealoading = false;
-    private int m_FiredCount = 0;
+    public static int m_FiredCount = 0;
 
     private SteamVR_Behaviour_Pose m_Pose = null;
     private Animator m_Animator = null;
     private ProjectilePool m_ProjectilePool = null;
+
+    public AudioSource m_ReloadSoudSource;
+    public AudioClip m_ReloadClip;
 
     public static int PublicAmmoStatus;
 
@@ -49,13 +52,19 @@ public class Blaster : MonoBehaviour
     {
         UpdateFireCount(0);
         BlasterSource.clip = BlasterClip;
+        m_ReloadSoudSource.clip = m_ReloadClip;
 
     }
     private void Update()
     {
+        if (Game.GameIsIntro == true)
+            return;
         if (m_IsRealoading)
             return;
-        
+        if (Game.GameIsPaused == true)
+            return;
+
+
 
         if (m_FireAction.GetStateDown(m_Pose.inputSource))
         {
@@ -69,17 +78,9 @@ public class Blaster : MonoBehaviour
             m_Animator.SetBool("Fire", false);
             
         }
-// For testing Purpouses
-
-        if(Input.GetKey(KeyCode.Space))
-        {
-            m_Animator.SetBool("Fire", true);
-            Fire();
-        }
-
-        
-        //if (m_RealoadAction.GetStateDown(m_Pose.inputSource))
-        //StartCoroutine(Reload());
+        m_AmmoOutput.text = (m_MaxProjectileCount - m_FiredCount).ToString();
+        m_ScreenAmmo.text = (m_MaxProjectileCount - m_FiredCount).ToString();
+        PublicAmmoStatus = (m_MaxProjectileCount - m_FiredCount);
 
     }
 
@@ -123,6 +124,7 @@ public class Blaster : MonoBehaviour
         m_AmmoOutput.text = "-";
         m_ScreenAmmo.text = "Reloading";
         m_IsRealoading = true;
+        m_ReloadSoudSource.Play();
 
         m_ProjectilePool.SetAllProjectiles();
 
@@ -137,9 +139,7 @@ public class Blaster : MonoBehaviour
     private void UpdateFireCount (int newValue)
     {
         m_FiredCount = newValue;
-        m_AmmoOutput.text = (m_MaxProjectileCount - m_FiredCount).ToString();
-        m_ScreenAmmo.text = (m_MaxProjectileCount - m_FiredCount).ToString();
-        PublicAmmoStatus = (m_MaxProjectileCount - m_FiredCount);
+        
     }
 }
 

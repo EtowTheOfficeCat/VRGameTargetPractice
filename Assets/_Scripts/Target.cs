@@ -10,7 +10,7 @@ public class Target : MonoBehaviour
     public Material m_OriginalColor = null;
 
     private GameObject m_Player;
-    public static float m_TargetSpeed = 1f;
+    public static float m_TargetSpeed = 1f; 
     private Vector3 m_DirectionToTarget;
     private Rigidbody rb;
 
@@ -42,13 +42,12 @@ public class Target : MonoBehaviour
 
     private void Update()
     {
-        MoveTarget();
-
-        //m_TargetSpeed = gameObject.GetComponent<EnemySpawn>().m_SpeedOverTime;
+        MoveTarget();     
     }
 
     void MoveTarget()
     {
+        
         if (m_Player != null)
         {
             m_DirectionToTarget = (m_Player.transform.position - transform.position).normalized;

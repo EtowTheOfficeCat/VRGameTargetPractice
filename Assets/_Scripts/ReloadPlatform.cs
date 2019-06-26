@@ -15,6 +15,7 @@ public class ReloadPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        
         if (collision.gameObject.CompareTag("Phaser"))
             m_ReloadSoudSource.Play();
             
