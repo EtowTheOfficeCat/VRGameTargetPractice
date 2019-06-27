@@ -42,7 +42,10 @@ public class Target : MonoBehaviour
 
     private void Update()
     {
-        MoveTarget();     
+        if(Game.GameIsPaused == true)
+            rb.velocity = Vector3.zero;
+        if(Game.GameIsPaused == false)
+            MoveTarget();     
     }
 
     void MoveTarget()

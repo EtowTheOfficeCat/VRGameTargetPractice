@@ -10,7 +10,7 @@ public class Blaster : MonoBehaviour
 
 [Header("Input")]
     public SteamVR_Action_Boolean m_FireAction = null;
-    //public SteamVR_Action_Boolean m_RealoadAction = null;
+    
 
 [Header("Settings")]
     public int m_Force = 100;
@@ -61,21 +61,20 @@ public class Blaster : MonoBehaviour
             return;
         if (m_IsRealoading)
             return;
-        if (Game.GameIsPaused == true)
-            return;
+        
 
 
 
         if (m_FireAction.GetStateDown(m_Pose.inputSource))
         {
-            m_Animator.SetBool("Fire",true);
+            //m_Animator.SetBool("Fire",true);
             Fire();
             
         }
 
         if (m_FireAction.GetStateUp(m_Pose.inputSource))
         {
-            m_Animator.SetBool("Fire", false);
+            //m_Animator.SetBool("Fire", false);
             
         }
         m_AmmoOutput.text = (m_MaxProjectileCount - m_FiredCount).ToString();
@@ -100,10 +99,6 @@ public class Blaster : MonoBehaviour
     {
         if (m_FiredCount >= m_MaxProjectileCount)
             return;
-
-        //RaycastHit hit;
-        //Ray ray = new Ray(m_Barrel.position, m_Barrel.forward);
-        //Debug.DrawRay(m_Barrel.position, m_Barrel.forward, Color.red, (5.0f));
 
         Projectile targetProjectile = m_ProjectilePool.m_Projectiles[m_FiredCount];
         targetProjectile.Launch(this);

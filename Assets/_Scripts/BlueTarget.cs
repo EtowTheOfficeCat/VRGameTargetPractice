@@ -44,13 +44,14 @@ public class BlueTarget : MonoBehaviour
         index = Random.Range(0, m_targetArray.Length);
         m_TargetGoal = m_targetArray[index];
         print(m_TargetGoal);
-
-        //m_TargetGoal = Random.Range(0, m_targetArray.Length);
     }
 
     private void Update()
     {
-        MoveTarget();
+        if (Game.GameIsPaused == true)
+            rb.velocity = Vector3.zero;
+        if (Game.GameIsPaused == false)
+            MoveTarget();
     }
 
     public void MoveTarget()

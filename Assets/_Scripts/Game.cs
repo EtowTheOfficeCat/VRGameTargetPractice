@@ -13,9 +13,10 @@ public class Game : MonoBehaviour
     [SerializeField] private int m_PauseCost = 10;
     public TextMeshProUGUI m_Score = null;
     public TextMeshProUGUI m_Points = null;
-    public AudioSource GameMusic;
+    
 
     public GameObject m_GameOverCanvas;
+    public GameObject m_GameStartCanvas;
 
     public static bool GameIsIntro = true;
     public static bool GameIsPaused = false;
@@ -56,8 +57,8 @@ public class Game : MonoBehaviour
         if (gameState == GameState.Play)
         {
             Time.timeScale = 1f;
-            //GameMusic.Play();
             GameIsIntro = false;
+            m_GameStartCanvas.SetActive(false);
         }
 
         if (gameState == GameState.Pause)
@@ -66,7 +67,7 @@ public class Game : MonoBehaviour
             PauseButtonisActive = true;
             GameIsPaused = true;
             Timer -=  Time.unscaledDeltaTime;
-            Time.timeScale = 0f;
+            
 
             TimerText.text = ("" + Timer );
             TimerText2.text = ("" + Timer);
@@ -96,7 +97,7 @@ public class Game : MonoBehaviour
         if (m_ScoreValue > m_DifficultyScore)
         {
             Target.m_TargetSpeed += 1f;
-            m_DifficultyScore += 50;
+            m_DifficultyScore += 100;
         }
         
 
