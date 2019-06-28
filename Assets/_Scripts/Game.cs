@@ -40,6 +40,7 @@ public class Game : MonoBehaviour
         Target.m_TargetSpeed = 1f;
         Blaster.m_MaxProjectileCount = 25;
         Blaster.m_FiredCount = 0;
+        EnemySpawn.m_SpawnInterval = 3f;
 
     }
 
@@ -97,6 +98,7 @@ public class Game : MonoBehaviour
         if (m_ScoreValue > m_DifficultyScore)
         {
             Target.m_TargetSpeed += 1f;
+            EnemySpawn.m_SpawnInterval -= 0.1f;
             m_DifficultyScore += 100;
         }
         
