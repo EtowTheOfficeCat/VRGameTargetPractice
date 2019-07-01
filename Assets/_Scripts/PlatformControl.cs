@@ -5,24 +5,13 @@ using UnityEngine;
 public class PlatformControl : MonoBehaviour
 {
     [SerializeField] private GameObject m_Platform;
-
     [SerializeField] private Transform m_PlatformPosition;
-
     [SerializeField] private GameObject m_PlatUnlockButton;
-    
     [SerializeField] private GameObject m_TelePortButton;
-   
     [SerializeField] private int m_PlatformPrice = 50;
-
     [SerializeField] private int m_TelePortationPrice = 10;
-
     [SerializeField] private GameObject Player;
-
-    private void Update()
-    {
-        
-    }
-     
+  
     public void UnlockPlatform()
     {
         if (Game.GameIsIntro == true)

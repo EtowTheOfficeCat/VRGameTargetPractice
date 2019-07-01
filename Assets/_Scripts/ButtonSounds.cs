@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ButtonSounds : MonoBehaviour
 {
-    public AudioSource AudioSource;
-    public AudioClip Hover;
-    public AudioClip Click;
+    [SerializeField] private AudioSource AudioSource;
+    [SerializeField] private AudioClip Hover;
+    [SerializeField] private AudioClip Click;
 
     public void HoverSound()
     {

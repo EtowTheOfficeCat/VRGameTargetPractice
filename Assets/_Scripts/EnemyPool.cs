@@ -48,6 +48,5 @@ public class EnemyPool : MonoBehaviour
         target.transform.rotation = Quaternion.identity;
         target.transform.parent = transform;
         enemies.Push(target);
-        //target.ReturnedToPool?.Invoke(target);
     }
 }

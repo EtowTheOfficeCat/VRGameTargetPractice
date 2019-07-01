@@ -9,20 +9,17 @@ public class Game : MonoBehaviour
     private GameState gameState = GameState.Intro;
     public static int m_ScoreValue = 0;
     public static int m_PointsValue = 0;
-    private int m_DifficultyScore = 50;
-    [SerializeField] private int m_PauseCost = 10;
-    public TextMeshProUGUI m_Score = null;
-    public TextMeshProUGUI m_Points = null;
-    
-
-    public GameObject m_GameOverCanvas;
-    public GameObject m_GameStartCanvas;
-
     public static bool GameIsIntro = true;
     public static bool GameIsPaused = false;
     private bool PauseButtonisActive = false;
-
     private float Timer = 10;
+
+    [SerializeField] private int m_DifficultyScore = 50;
+    [SerializeField] private int m_PauseCost = 10;
+    [SerializeField] private TextMeshProUGUI m_Score = null;
+    [SerializeField] private TextMeshProUGUI m_Points = null;
+    [SerializeField] private GameObject m_GameOverCanvas;
+    [SerializeField] private GameObject m_GameStartCanvas;
     [SerializeField] private TextMeshProUGUI TimerText;
     [SerializeField] private TextMeshProUGUI TimerText2;
     [SerializeField] private TextMeshProUGUI TimerText3;
@@ -41,7 +38,6 @@ public class Game : MonoBehaviour
         Blaster.m_MaxProjectileCount = 25;
         Blaster.m_FiredCount = 0;
         EnemySpawn.m_SpawnInterval = 3f;
-
     }
 
     private void Update()
@@ -49,11 +45,10 @@ public class Game : MonoBehaviour
         
         if(gameState == GameState.Intro)
         {
-            
             Time.timeScale = 0f;
             Blaster.m_IsRealoading = false;
             GameIsIntro = true;
-}
+        }
 
         if (gameState == GameState.Play)
         {
@@ -69,7 +64,6 @@ public class Game : MonoBehaviour
             GameIsPaused = true;
             Timer -=  Time.unscaledDeltaTime;
             
-
             TimerText.text = ("" + Timer );
             TimerText2.text = ("" + Timer);
             TimerText3.text = ("" + Timer);
@@ -101,8 +95,6 @@ public class Game : MonoBehaviour
             EnemySpawn.m_SpawnInterval -= 0.1f;
             m_DifficultyScore += 100;
         }
-        
-
         m_Score.text = "" + m_ScoreValue;
         m_Points.text = "" + m_PointsValue;
     }
@@ -112,9 +104,7 @@ public class Game : MonoBehaviour
         if (collision.gameObject.CompareTag("EnemyTarget"))
         {
             gameState = GameState.GameOver;
-        }
-            
-            
+        }     
     }
     public void StartGame()
     {
@@ -132,11 +122,8 @@ public class Game : MonoBehaviour
         m_PointsValue -= m_PauseCost;
         
         gameState = GameState.Pause;
-
     }
 
-
-    
     public enum GameState
     {
         Intro, Play , Pause,  GameOver

@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public Vector3 m_SpawnCenter;
-    public Vector3 m_SpawnSize;
-
-    //public GameObject m_EnemyPrefab = null;
+    [SerializeField] private Vector3 m_SpawnCenter;
+    [SerializeField] private Vector3 m_SpawnSize;
+    [SerializeField] private int m_NumEnemies = 50;
+    [SerializeField] private float m_SpeedOverTime = 0.2f;
+    [SerializeField] private float m_SpeedIncreaseTimer = 10;
+    [SerializeField] private EnemyPool ePool;
 
     public static float m_SpawnInterval = 3f;
-    public int m_NumEnemies = 50;
     private int m_EnemyIdx;
     private float timer;
     private bool m_MaySpawn = true;
-
-
-    public float m_SpeedOverTime = 0.2f;
-    public float m_SpeedIncreaseTimer = 10;
     private float m_SpeedTimer;
-
-    [SerializeField] private EnemyPool ePool;
 
     private void Awake()
     {
@@ -34,18 +29,18 @@ public class EnemySpawn : MonoBehaviour
         if (m_MaySpawn == false)
             return; 
         timer += Time.deltaTime;
+
         if (timer >= m_SpawnInterval && m_NumEnemies > 0)
         {
             timer = 0f;
             SpawnEnemy();
-            
         }
+
         else if (m_EnemyIdx >= m_NumEnemies)
         {
             m_MaySpawn = false;
             timer = 0f;
         }
-
     }
 
     public void SpawnEnemy()
@@ -64,5 +59,4 @@ public class EnemySpawn : MonoBehaviour
         Gizmos.color = new Color(1 , 0 , 0, 0.5f);
         Gizmos.DrawCube(transform.localPosition + m_SpawnCenter, m_SpawnSize);
     }
-
 }

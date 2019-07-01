@@ -5,10 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Pointer : MonoBehaviour
 {
-    public float m_DefaultLengh = 5.0f;
-    //public GameObject m_Dot;
-    public VR_InputModule m_InputModule;
-
+    [SerializeField] float m_DefaultLengh = 5.0f;
+    [SerializeField] public VR_InputModule m_InputModule;
     private LineRenderer m_LineRenderer = null;
 
     private void Awake()
@@ -33,7 +31,6 @@ public class Pointer : MonoBehaviour
         if(hit.collider != null)
             endPosition = hit.point;
 
-        //m_Dot.transform.position = endPosition;
 
         m_LineRenderer.SetPosition(0, transform.position);
         m_LineRenderer.SetPosition(1, endPosition);

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public Material m_FlashDamageColor = null;
+    [SerializeField] private Material m_FlashDamageColor = null;
+    [SerializeField] private Material m_OriginalColor = null;
 
     private MeshRenderer m_MeshRenderer = null;
-    public Material m_OriginalColor = null;
-
     private GameObject m_Player;
     public static float m_TargetSpeed = 1f; 
     private Vector3 m_DirectionToTarget;
@@ -25,7 +24,6 @@ public class Target : MonoBehaviour
         set { ePool = value; }
     }
 
-
     private void Awake()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
@@ -36,8 +34,6 @@ public class Target : MonoBehaviour
     private void Start()
     {
         m_Player = GameObject.Find("Player");
-        
-
     }
 
     private void Update()
@@ -58,7 +54,9 @@ public class Target : MonoBehaviour
         }
 
         else
+        {
             rb.velocity = Vector3.zero;
+        }  
     }
 
     private void OnEnable()

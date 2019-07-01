@@ -5,25 +5,21 @@ using UnityEngine;
 
 public class BlueTarget : MonoBehaviour
 {
-    public Material m_FlashDamageColor = null;
+    [SerializeField] public Material m_FlashDamageColor = null;
+    [SerializeField] public Material m_OriginalColor = null;
+    [SerializeField] public float m_BlueTargetSpeed = 0;
 
     private MeshRenderer m_MeshRenderer = null;
-    public Material m_OriginalColor = null;
-
-    public float m_BlueTargetSpeed = 0;
     private Vector3 m_DirectionToTarget;
     private Rigidbody rb;
-
     private int m_MaxHealth = 2;
     private int m_Health = 0;
     private int timer;
     private GameObject m_TargetGoal;
-
-    //Transform[] m_targetArray = new Transform[6];
-    GameObject[] m_targetArray = new GameObject[6];
     private int index;
 
-
+    GameObject[] m_targetArray = new GameObject[6];
+    
     private void Awake()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
