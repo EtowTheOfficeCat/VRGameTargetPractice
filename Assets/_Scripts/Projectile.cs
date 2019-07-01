@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float m_Lifetime = 5.0f;
+    [SerializeField] private  float m_Lifetime = 5.0f;
 
     private Rigidbody m_Rigidbody = null;
-
 
     private void Awake()
     {

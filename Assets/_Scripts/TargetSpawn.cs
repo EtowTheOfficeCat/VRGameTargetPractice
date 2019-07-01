@@ -33,7 +33,6 @@ public class TargetSpawn : MonoBehaviour
             m_MaySpawn = false;
             timer = 0f;
         }
-
     }
 
     public void SpawnEnemy()

@@ -6,17 +6,9 @@ using TMPro;
 
 public class ScorePointsLivesCounter : MonoBehaviour
 {
-
     [SerializeField] private TextMeshProUGUI m_Score = null;
     [SerializeField] private TextMeshProUGUI m_Points = null;
     [SerializeField] private TextMeshProUGUI m_Ammo = null;
-
-
-    void Start()
-    {
-
-    }
-
 
     void Update()
     {

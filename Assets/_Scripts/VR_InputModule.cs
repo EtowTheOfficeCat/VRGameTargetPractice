@@ -6,9 +6,9 @@ using Valve.VR;
 
 public class VR_InputModule : BaseInputModule
 {
-    public Camera m_Camera;
-    public SteamVR_Input_Sources m_TargetSource;
-    public SteamVR_Action_Boolean m_ClickAction;
+    [SerializeField] private Camera m_Camera;
+    [SerializeField] private SteamVR_Input_Sources m_TargetSource;
+    [SerializeField] private SteamVR_Action_Boolean m_ClickAction;
 
     private GameObject m_CurrentObject = null;
     private PointerEventData m_Data = null;
@@ -38,7 +38,6 @@ public class VR_InputModule : BaseInputModule
 
         if (m_ClickAction.GetLastStateUp(m_TargetSource))
             ProcessRelease(m_Data);
-
     }
 
     public PointerEventData GetData()
@@ -58,8 +57,6 @@ public class VR_InputModule : BaseInputModule
         data.pressPosition = data.position;
         data.pointerPress = newPointerPress;
         data.rawPointerPress = m_CurrentObject;
-
-
     }
 
     private void ProcessRelease ( PointerEventData data)
@@ -78,6 +75,5 @@ public class VR_InputModule : BaseInputModule
         data.pressPosition = Vector2.zero;
         data.pointerPress = null;
         data.rawPointerPress = null;
-
     }
 }

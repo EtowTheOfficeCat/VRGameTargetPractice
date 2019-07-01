@@ -19,7 +19,6 @@ public class PlatformControl : MonoBehaviour
         if (Game.m_PointsValue < m_PlatformPrice)
             return;
         m_Platform.SetActive(true);
-        m_PlatformPrice += 20;
         Game.m_PointsValue -= m_PlatformPrice;
         m_PlatUnlockButton.SetActive(false);
         m_TelePortButton.SetActive(true);
