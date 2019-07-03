@@ -85,7 +85,7 @@ public class Blaster : MonoBehaviour
 
         BlasterSource.Play();
 
-        UpdateFireCount(m_FiredCount ++);
+        UpdateFireCount(m_FiredCount + 1);
     }
 
     public IEnumerator Reload()

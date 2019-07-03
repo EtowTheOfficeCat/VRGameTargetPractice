@@ -6,7 +6,7 @@ using TMPro;
 
 public class Game : MonoBehaviour
 {
-    private GameState gameState = GameState.Play;
+    private GameState gameState = GameState.Intro;
     public static int m_ScoreValue = 0;
     public static int m_PointsValue = 0;
     public static bool GameIsIntro = true;
