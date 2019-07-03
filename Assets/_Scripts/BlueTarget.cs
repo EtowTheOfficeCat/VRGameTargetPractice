@@ -19,7 +19,14 @@ public class BlueTarget : MonoBehaviour
     private int index;
 
     GameObject[] m_targetArray = new GameObject[6];
-    
+
+    private BlueTargetPool bPool;
+
+    public BlueTargetPool Bpool
+    {
+        set { bPool = value; }
+    }
+
     private void Awake()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
@@ -117,6 +124,6 @@ public class BlueTarget : MonoBehaviour
     {
         Game.m_ScoreValue += 20;
         Game.m_PointsValue += 10;
-        gameObject.SetActive(false);
+        bPool.ReturnToPool(this);
     }
 }

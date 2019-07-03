@@ -10,11 +10,17 @@ public class TargetSpawn : MonoBehaviour
     [SerializeField] private GameObject m_TargetPrefab = null;
     [SerializeField] private float m_SpawnInterval = 1f;
     [SerializeField] private int m_NumEnemies = 50;
+    [SerializeField] private BlueTargetPool bPool;
 
     private int m_EnemyIdx;
     private float timer;
     private bool m_MaySpawn = true;
     private float m_SpeedTimer;
+
+    private void Awake()
+    {
+        bPool = GameObject.Find("BlueTargetPool").GetComponent<BlueTargetPool>();
+    }
 
     void Update()
     {
@@ -42,7 +48,7 @@ public class TargetSpawn : MonoBehaviour
             Random.Range(-m_SpawnSize.y / 2, m_SpawnSize.y / 2),
             Random.Range(-m_SpawnSize.z / 2, m_SpawnSize.z / 2));
 
-        Instantiate(m_TargetPrefab, pos, Quaternion.identity);
+        BlueTarget btarget = bPool.GetNext(pos, Quaternion.identity);
         m_EnemyIdx++;
     }
 
