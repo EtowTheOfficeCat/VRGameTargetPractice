@@ -6,13 +6,16 @@ unlock new features. For Example unlocking new Platform to which the player can 
 or the Ability to Stop the Time for 10 seconds to shoot down targets and or prepare a new plan of defense, but also just to be able to reload his
 phaser blaster. 
 
-# Preview of the Game : 
-https://youtu.be/mUszneB2kNQ
+# Preview Video of the Game : 
+https://youtu.be/cCn7jdJhnn4
 
 # Pictures of the Game: 
 
 ![Alt Text](https://i.imgur.com/mY6tV9d.png)
 Game Main Platform where the Player Starts.
 
+![Alt Text](https://i.imgur.com/bDkgFXj.png)
+Main Menu With Instructions
+
 ![Alt Text](https://i.imgur.com/uhLhHQc.png)
-EnemyTargets(Red) and PointsTarget Spawners (blue) as well as the Main Platform and 3 Unlockable platforms of the game. 
+EnemyTargets(Red) and PointsTarget(blue) spawners  as well as the Main Platform and 3 Unlockable platforms of the game. 
