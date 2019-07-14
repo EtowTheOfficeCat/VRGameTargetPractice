@@ -6,6 +6,8 @@ unlock new features. For Example unlocking new Platform to which the player can 
 or the Ability to Stop the Time for 10 seconds to shoot down targets and or prepare a new plan of defense, but also just to be able to reload his
 phaser blaster. 
 
+This Game was created for my Game Deign Midterms exams at the GPB. Created with Unity 2019.1.6f1, Coded in C# 
+
 # Preview Video of the Game : 
 https://youtu.be/cCn7jdJhnn4
 
