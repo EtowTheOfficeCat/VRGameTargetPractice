@@ -72,6 +72,7 @@ public class BlueTarget : MonoBehaviour
     private void OnEnable()
     {
         ResetHealth();
+        m_MeshRenderer.material = m_OriginalColor;
     }
 
     private void OnCollisionEnter(Collision collision)
