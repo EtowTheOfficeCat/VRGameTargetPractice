@@ -11,6 +11,7 @@ This Game was created for my Game Design midterms exams at the GPB. Created with
 # Preview Video of the Game : 
 https://youtu.be/cCn7jdJhnn4
 
+[![Watch the video](https://i.imgur.com/315Tl55.png)](https://youtu.be/cCn7jdJhnn4)
 # Pictures of the Game: 
 
 ![Alt Text](https://i.imgur.com/mY6tV9d.png)
