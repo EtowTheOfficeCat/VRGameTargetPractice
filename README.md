@@ -8,6 +8,8 @@ phaser blaster.
 
 This Game was created for my Game Design midterms exams at the GPB. Created with Unity 2019.1.6f1, Coded in C# 
 
+All the assets are custom made, find them on my [Artstation](https://www.artstation.com/artwork/k4B4kl)
+
 # Preview Video of the Game : 
 https://youtu.be/cCn7jdJhnn4
 
