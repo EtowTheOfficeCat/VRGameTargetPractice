@@ -1,11 +1,11 @@
 # VR Target Practice 
-**Hi there EtowTheOfficeCat Here! Today i´ll present you the game I created for my midterm exams at the GPB.**
+**Hi there EtowTheOfficeCat here! Today i´ll present you the game I created for my midterm exams at the GPB.**
 
 ![](https://media.giphy.com/media/pOKrXLf9N5g76/giphy.gif)
 
 **Here Short Description of the Game:** 
 
-VR target practice is a VR Highscore Survival Mini Game in which the player has to avoid getting hit by enemy targets by destroying them 
+VR Target Practice is a VR highscore survival mini game in which the player has to avoid getting hit by enemy targets by destroying them 
 with a handheld Phaser Blaster. The Player also has to shoot down blue targets wandering around the map to collect points he will need to 
 unlock new features. For Example unlocking new Platform to which the player can teleport to get closer to blue targets or escape the Enemy Targets,
 or the Ability to Stop the Time for 10 seconds to shoot down targets and or prepare a new plan of defense, but also just to be able to reload his
