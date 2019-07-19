@@ -14,7 +14,7 @@ phaser blaster.
 # Preview Video of the Game : 
 https://youtu.be/cCn7jdJhnn4
 
-[![Watch the video](https://i.imgur.com/315Tl55.png)](https://youtu.be/cCn7jdJhnn4)
+[![Watch the video](https://media.giphy.com/media/ftpmH27rzrLRORpMRS/giphy.gif)](https://youtu.be/cCn7jdJhnn4)
 # Pictures of the Game: 
 
 ![Alt Text](https://i.imgur.com/mY6tV9d.png)
